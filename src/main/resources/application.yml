@@ -1,12 +1,6 @@
 server:
   port: 8900
 
-#spring:
-#  autoconfigure:
-#    exclude:
-#      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-#      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
-
 spring:
   jpa:
     hibernate:
@@ -21,6 +15,15 @@ spring:
           batch_size: 20
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/hcl
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: postgres
+    password: mysecretpassword
+
+kafka:
+  bootstrap-server: localhost:9092
+  client-id: portfoliosvc
+  acks: all
+  retries: 3
+  key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  outbound-topic: portfolio-outbound
