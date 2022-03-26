@@ -9,6 +9,7 @@ import start.myprojectbe.repository.OrderRepository;
 
 import java.util.Objects;
 
+@Service
 public class OrderEntryServiceImpl implements OrderEntryService{
 
     @Autowired
